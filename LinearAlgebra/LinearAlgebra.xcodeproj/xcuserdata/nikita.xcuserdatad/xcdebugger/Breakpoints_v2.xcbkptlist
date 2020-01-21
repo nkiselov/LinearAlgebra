@@ -14,9 +14,9 @@
             filePath = "LinearAlgebra/Matrix.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "description"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "inverse"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "LinearAlgebra/Matrix.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "description"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "inverse"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

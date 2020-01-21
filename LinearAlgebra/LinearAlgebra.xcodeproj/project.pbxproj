@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11DA70B923D7915000D60864 /* MESolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA70B823D7915000D60864 /* MESolver.swift */; };
+		11DA70BB23D791CB00D60864 /* MEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA70BA23D791CB00D60864 /* MEquation.swift */; };
 		11FF638423CF93DC00BC8F6A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF638323CF93DC00BC8F6A /* main.swift */; };
 		11FF638B23CF93F000BC8F6A /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF638A23CF93F000BC8F6A /* Matrix.swift */; };
 		11FF638D23CF93FC00BC8F6A /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF638C23CF93FC00BC8F6A /* Vector.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11DA70B823D7915000D60864 /* MESolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MESolver.swift; sourceTree = "<group>"; };
+		11DA70BA23D791CB00D60864 /* MEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEquation.swift; sourceTree = "<group>"; };
 		11FF638023CF93DC00BC8F6A /* LinearAlgebra */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinearAlgebra; sourceTree = BUILT_PRODUCTS_DIR; };
 		11FF638323CF93DC00BC8F6A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		11FF638A23CF93F000BC8F6A /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				11FF638C23CF93FC00BC8F6A /* Vector.swift */,
 				11FF638A23CF93F000BC8F6A /* Matrix.swift */,
 				11FF638323CF93DC00BC8F6A /* main.swift */,
+				11DA70B823D7915000D60864 /* MESolver.swift */,
+				11DA70BA23D791CB00D60864 /* MEquation.swift */,
 			);
 			path = LinearAlgebra;
 			sourceTree = "<group>";
@@ -126,8 +132,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DA70BB23D791CB00D60864 /* MEquation.swift in Sources */,
 				11FF638B23CF93F000BC8F6A /* Matrix.swift in Sources */,
 				11FF638D23CF93FC00BC8F6A /* Vector.swift in Sources */,
+				11DA70B923D7915000D60864 /* MESolver.swift in Sources */,
 				11FF638423CF93DC00BC8F6A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
