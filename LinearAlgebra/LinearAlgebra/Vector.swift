@@ -14,7 +14,7 @@ func *(lhs: Vector, rhs: Vector) -> Double {
     }
     var product:Double = 0
     for i in 0..<lhs.count{
-        product += lhs.components[i]*rhs.components[i]
+        product += lhs.elements[i]*rhs.elements[i]
     }
     return product
 }
@@ -56,7 +56,7 @@ func -(lhs: Vector, rhs:Vector)->Vector{
 func *(lhs: Vector, rhs: Double) -> Vector {
     let product:Vector = Vector(lhs.count)
     for i in 0..<lhs.count{
-        product.set(i,lhs.components[i]*rhs)
+        product.set(i,lhs.elements[i]*rhs)
     }
     return product
 }
@@ -64,7 +64,7 @@ func *(lhs: Vector, rhs: Double) -> Vector {
 func *(lhs: Double, rhs: Vector) -> Vector {
     let product:Vector = Vector(rhs.count)
     for i in 0..<rhs.count{
-        product.set(i,rhs.components[i]*lhs)
+        product.set(i,rhs.elements[i]*lhs)
     }
     return product
 }
@@ -72,48 +72,57 @@ func *(lhs: Double, rhs: Vector) -> Vector {
 func /(lhs: Vector, rhs: Double) -> Vector {
     let product:Vector = Vector(lhs.count)
     for i in 0..<lhs.count{
-        product.set(i,lhs.components[i]/rhs)
+        product.set(i,lhs.elements[i]/rhs)
     }
     return product
 }
     
 class Vector: CustomStringConvertible{
-    var components:[Double]
+    var elements:[Double]
     public var count:Int{
-        return components.count
+        return elements.count
     }
-    public var sqrDst:Double{
-        var sqrDst:Double=0
+    public var sqrNorm:Double{
+        var sqrNorm:Double=0
         for i in 0..<count{
-            sqrDst+=components[i]*components[i]
+            sqrNorm+=elements[i]*elements[i]
         }
-        return sqrDst
+        return sqrNorm
+    }
+    public var norm:Double{
+        return sqrt(sqrNorm)
+    }
+    public var mat:Matrix{
+        return Matrix(columns: [self])
+    }
+    public var transpose:Matrix{
+        return mat.transpose
     }
     public var description: String {
         var description = "Vector "+count.description+":"
         for i in 0..<count{
-            description.append("\n  "+i.description+": "+components[i].description)
+            description.append("\n  "+i.description+": "+elements[i].description)
         }
         return description
     }
     
     init(_ size:Int){
-        components = Array.init(repeating: 0, count: size)
+        elements = Array.init(repeating: 0, count: size)
     }
     
-    init(_ components:[Double]){
-        self.components = components
+    init(_ elements:[Double]){
+        self.elements = elements
     }
     
     public func get(_ i:Int)->Double{
-        return components[i]
+        return elements[i]
     }
     
     public func set(_ i:Int, _ v:Double){
-        components[i]=v
+        elements[i]=v
     }
     
     public func copy()->Vector{
-        return Vector(components)
+        return Vector(elements)
     }
 }

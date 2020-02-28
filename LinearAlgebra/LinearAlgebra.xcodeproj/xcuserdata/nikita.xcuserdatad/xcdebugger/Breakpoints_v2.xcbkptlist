@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A52D5F37-D024-4018-B78F-D8819136A145"
+            uuid = "EDF7FEDE-526F-4793-9A1A-238739CE3BA4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LinearAlgebra/Matrix.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "inverse"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "sqrNorm"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FEE01E6E-FA2F-4F20-BC60-2564EBA964ED"
+            uuid = "E16341FB-DD0F-460F-BFC7-7EC371F96272"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LinearAlgebra/Matrix.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "inverse"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "determinant"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

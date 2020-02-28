@@ -40,6 +40,62 @@ func *(lhs: Matrix, rhs: Vector) -> Vector {
     return res
 }
 
+func +(lhs: Matrix, rhs: Matrix) -> Matrix {
+    if(!(rhs.rowsCount==lhs.rowsCount && rhs.columnsCount==lhs.columnsCount)){
+        fatalError("Can't apply matrix addition to matrices of different size")
+    }
+    let res = Matrix(rhs.rowsCount,rhs.columnsCount)
+    for r in 0 ..< res.rowsCount{
+        for c in 0 ..< res.columnsCount{
+            res.set(r, c, lhs.get(r, c)+rhs.get(r, c))
+        }
+    }
+    return res
+}
+
+func -(lhs: Matrix, rhs: Matrix) -> Matrix {
+    if(!(rhs.rowsCount==lhs.rowsCount && rhs.columnsCount==lhs.columnsCount)){
+        fatalError("Can't apply matrix addition to matrices of different size")
+    }
+    let res = Matrix(rhs.rowsCount,rhs.columnsCount)
+    for r in 0 ..< res.rowsCount{
+        for c in 0 ..< res.columnsCount{
+            res.set(r, c, lhs.get(r, c)-rhs.get(r, c))
+        }
+    }
+    return res
+}
+
+func *(lhs: Double, rhs: Matrix) -> Matrix {
+    let res = Matrix(rhs.rowsCount,rhs.columnsCount)
+    for r in 0 ..< res.rowsCount{
+        for c in 0 ..< res.columnsCount{
+            res.set(r, c, lhs*rhs.get(r, c))
+        }
+    }
+    return res
+}
+
+func *(lhs: Matrix, rhs: Double) -> Matrix {
+    let res = Matrix(lhs.rowsCount,lhs.columnsCount)
+    for r in 0 ..< res.rowsCount{
+        for c in 0 ..< res.columnsCount{
+            res.set(r, c, rhs*lhs.get(r, c))
+        }
+    }
+    return res
+}
+
+func /(lhs: Matrix, rhs: Double) -> Matrix {
+    let res = Matrix(lhs.rowsCount,lhs.columnsCount)
+    for r in 0 ..< res.rowsCount{
+        for c in 0 ..< res.columnsCount{
+            res.set(r, c, lhs.get(r, c)/rhs)
+        }
+    }
+    return res
+}
+
 class Matrix: CustomStringConvertible{
     var elements:[[Double]]
     public var rowsCount:Int{
@@ -64,14 +120,28 @@ class Matrix: CustomStringConvertible{
         let size = rowsCount
         let reduced = copy()
         let result = Matrix.identity(size: size)
+        var columns:[Int]=[]
         for i in 0..<size{
-            let scale = reduced.get(i, i)
+            columns.append(i)
+        }
+        var order = Array(repeating: 0, count: size)
+        for i in 0..<size{
+            var scale:Double = 0
+            var c = 0
+            for ci in 0..<columns.count{
+                c = columns[ci]
+                scale = reduced.get(i, c)
+                if(scale != 0){
+                    break;
+                }
+            }
+            order[c]=i
             for j in 0..<size{
                 reduced.set(i, j, reduced.get(i, j) / scale)
                 result.set(i, j, result.get(i, j) / scale)
             }
             for a in 0..<size{
-                let multiple = reduced.get(a, i)
+                let multiple = reduced.get(a, c)
                 if (a != i) {
                     for j in 0..<size{
                         reduced.set(a, j, reduced.get(a, j) - multiple*reduced.get(i,j))
@@ -80,13 +150,88 @@ class Matrix: CustomStringConvertible{
                 }
             }
         }
-        return result
+        var flippedRows:[Vector] = []
+        for i in 0..<size{
+            flippedRows.append(result.getRow(order[i]))
+        }
+        return Matrix(rows: flippedRows)
     }
     public var rightInverse:Matrix {
         return self.transpose*(self*self.transpose).inverse
     }
     public var leftInverse:Matrix {
         return (self.transpose*self).inverse*self.transpose
+    }
+    public var sqrNorm:Double{
+         var sqrNorm:Double=0
+         for i in 0..<rowsCount{
+            for j in 0..<columnsCount{
+                sqrNorm+=elements[i][j]*elements[i][j]
+            }
+         }
+         return sqrNorm
+    }
+    public var norm:Double{
+        return sqrt(sqrNorm)
+    }
+    public var determinant:Double{
+        if(rowsCount != columnsCount){
+            fatalError("Cn not take determinant of a non square matrix")
+        }
+        var det:Double = 1
+        let size = rowsCount
+        let reduced = copy()
+        let result = Matrix.identity(size: size)
+        var columns:[Int]=[]
+        for i in 0..<size{
+            columns.append(i)
+        }
+        var order = Array(repeating: 0, count: size)
+        var set:[Int] = []
+        for i in 0..<size{
+            var scale:Double = 0
+            var c = 0
+            for ci in 0..<columns.count{
+                c = columns[ci]
+                scale = reduced.get(i, c)
+                if(scale != 0){
+                    break;
+                }
+            }
+            if(set.contains(c)){
+                return 0
+            }
+            order[c]=i
+            set.append(c)
+            det*=scale
+            for j in 0..<size{
+                reduced.set(i, j, reduced.get(i, j) / scale)
+                result.set(i, j, result.get(i, j) / scale)
+            }
+            for a in 0..<size{
+                let multiple = reduced.get(a, c)
+                if (a != i) {
+                    for j in 0..<size{
+                        reduced.set(a, j, reduced.get(a, j) - multiple*reduced.get(i,j))
+                        result.set(a, j, result.get(a, j) - multiple*result.get(i,j))
+                    }
+                }
+            }
+        }
+        var elim = Array(repeating: 0, count: size)
+        for i in 0..<elim.count{
+            elim[i]=i
+        }
+        var t=0
+        for i in 0..<size{
+            let index = elim.firstIndex(of: order[i])!
+            t+=index%2
+            elim.remove(at: index)
+        }
+        if(t%2==1){
+            det = -det
+        }
+        return det
     }
     public var description: String {
         var table:[[String]] = Array(repeating: Array(repeating: "", count: columnsCount+1), count: rowsCount+1)
@@ -171,6 +316,14 @@ class Matrix: CustomStringConvertible{
     
     public func get(_ r:Int, _ c:Int)->Double{
         return elements[r][c]
+    }
+    
+    public func getRow(_ r:Int)->Vector{
+        var row:[Double]=[]
+        for c in 0..<columnsCount{
+            row.append(get(r, c))
+        }
+        return Vector(row)
     }
     
     public func set(_ r:Int, _ c:Int, _ v:Double){

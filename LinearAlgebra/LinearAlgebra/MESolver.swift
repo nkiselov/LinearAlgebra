@@ -24,7 +24,7 @@ class MESolver {
             let derivative = Matrix(columns: columns)
             let netChange = derivative.rightInverse*value
             pos=pos-netChange
-            if(netChange.sqrDst<epsilon){
+            if(netChange.sqrNorm<epsilon){
                 break
             }
         }
