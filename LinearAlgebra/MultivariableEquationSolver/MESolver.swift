@@ -5,7 +5,7 @@
 //  Created by Nikita on 21.01.2020.
 //  Copyright © 2020 Nikita Kiselov. All rights reserved.
 //
-
+//  Multivariate solver using Newton-Raphson model (even though this is not linear algebra, it is a very useful tool
 import Foundation
 
 class MESolver {

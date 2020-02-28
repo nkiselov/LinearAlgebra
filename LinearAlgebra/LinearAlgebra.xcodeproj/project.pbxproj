@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B4DC0F240990BE0072F2A6 /* MatrixOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC0E240990BE0072F2A6 /* MatrixOperators.swift */; };
+		11B4DC112409913A0072F2A6 /* VectorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC102409913A0072F2A6 /* VectorOperators.swift */; };
 		11DA70B923D7915000D60864 /* MESolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA70B823D7915000D60864 /* MESolver.swift */; };
 		11DA70BB23D791CB00D60864 /* MEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA70BA23D791CB00D60864 /* MEquation.swift */; };
 		11FF638423CF93DC00BC8F6A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF638323CF93DC00BC8F6A /* main.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11B4DC0E240990BE0072F2A6 /* MatrixOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOperators.swift; sourceTree = "<group>"; };
+		11B4DC102409913A0072F2A6 /* VectorOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorOperators.swift; sourceTree = "<group>"; };
 		11DA70B823D7915000D60864 /* MESolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MESolver.swift; sourceTree = "<group>"; };
 		11DA70BA23D791CB00D60864 /* MEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEquation.swift; sourceTree = "<group>"; };
 		11FF638023CF93DC00BC8F6A /* LinearAlgebra */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinearAlgebra; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +50,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11B4DC0D2409908C0072F2A6 /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+				11B4DC0E240990BE0072F2A6 /* MatrixOperators.swift */,
+				11B4DC102409913A0072F2A6 /* VectorOperators.swift */,
+			);
+			path = Operators;
+			sourceTree = "<group>";
+		};
+		11B4DC12240991420072F2A6 /* MultivariableEquationSolver */ = {
+			isa = PBXGroup;
+			children = (
+				11DA70BA23D791CB00D60864 /* MEquation.swift */,
+				11DA70B823D7915000D60864 /* MESolver.swift */,
+			);
+			path = MultivariableEquationSolver;
+			sourceTree = "<group>";
+		};
 		11FF637723CF93DC00BC8F6A = {
 			isa = PBXGroup;
 			children = (
-				11FF638223CF93DC00BC8F6A /* LinearAlgebra */,
+				11B4DC12240991420072F2A6 /* MultivariableEquationSolver */,
+				11B4DC0D2409908C0072F2A6 /* Operators */,
+				11FF638C23CF93FC00BC8F6A /* Vector.swift */,
+				11FF638A23CF93F000BC8F6A /* Matrix.swift */,
+				11FF638323CF93DC00BC8F6A /* main.swift */,
 				11FF638123CF93DC00BC8F6A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,18 +86,6 @@
 				11FF638023CF93DC00BC8F6A /* LinearAlgebra */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		11FF638223CF93DC00BC8F6A /* LinearAlgebra */ = {
-			isa = PBXGroup;
-			children = (
-				11FF638C23CF93FC00BC8F6A /* Vector.swift */,
-				11FF638A23CF93F000BC8F6A /* Matrix.swift */,
-				11FF638323CF93DC00BC8F6A /* main.swift */,
-				11DA70B823D7915000D60864 /* MESolver.swift */,
-				11DA70BA23D791CB00D60864 /* MEquation.swift */,
-			);
-			path = LinearAlgebra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,10 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B4DC112409913A0072F2A6 /* VectorOperators.swift in Sources */,
 				11DA70BB23D791CB00D60864 /* MEquation.swift in Sources */,
 				11FF638B23CF93F000BC8F6A /* Matrix.swift in Sources */,
 				11FF638D23CF93FC00BC8F6A /* Vector.swift in Sources */,
 				11DA70B923D7915000D60864 /* MESolver.swift in Sources */,
+				11B4DC0F240990BE0072F2A6 /* MatrixOperators.swift in Sources */,
 				11FF638423CF93DC00BC8F6A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
