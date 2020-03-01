@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import simd
 
+
+//let a = Matrix(columns: [Vector([2,-1,-1,0]),Vector([-1,3,-1,-1]),Vector([-1,-1,3,-1]),Vector([0,-1,-1,2])])
 let a = Matrix(columns: [Vector([1,3,6]),Vector([-3,-5,-6]),Vector([3,3,4])])
-print(a[1..<3,0..<2])
-//print(getEigen(a))
-//let s = Matrix(columns: getEigenvectors(a))
-//print(s*l*s.transpose)
+print(getEigen(a))

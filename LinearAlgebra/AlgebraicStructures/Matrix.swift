@@ -21,6 +21,10 @@ public class Matrix: CustomStringConvertible{
         return elements[0].count
     }
     
+    public var count:(Int,Int){
+        return (rowsCount,columnsCount)
+    }
+    
     public var transpose:Matrix {
         let transpose = Matrix(columnsCount,rowsCount)
         for i in 0..<rowsCount{
@@ -43,6 +47,8 @@ public class Matrix: CustomStringConvertible{
             columns.append(i)
         }
         var order = Array(repeating: 0, count: size)
+        print(reduced)
+        print(result)
         for i in 0..<size{
             var scale:Double = 0
             var c = 0
@@ -67,10 +73,13 @@ public class Matrix: CustomStringConvertible{
                     }
                 }
             }
+            print("-------------------------------------")
+            print(reduced)
+            print(result)
         }
         var flippedRows:[Vector] = []
         for i in 0..<size{
-            flippedRows.append(result[order[i],0..<result.columnsCount].getRows()[0])
+            flippedRows.append(result[order[i],0..<result.columnsCount].rows()[0])
         }
         return Matrix(rows: flippedRows)
     }
@@ -264,7 +273,7 @@ public class Matrix: CustomStringConvertible{
         get{
             let m = Matrix(1,c.count)
             for i in 0..<c.count{
-                m[0,i]=self[c.lowerBound+i,r]
+                m[0,i]=self[r,c.lowerBound+i]
             }
             return m
         }
@@ -279,7 +288,7 @@ public class Matrix: CustomStringConvertible{
         get{
             let m = Matrix(1,c.count)
             for i in 0..<c.count{
-                m[0,i]=self[c.lowerBound+i,r]
+                m[0,i]=self[r,c.lowerBound+i]
             }
             return m
         }
@@ -328,19 +337,21 @@ public class Matrix: CustomStringConvertible{
         }
     }
     
-    public func getColumns()->[Vector]{
-        let columns = Array(repeating: Vector(rowsCount), count: columnsCount)
-        for i in 0..<rowsCount{
-            for j in 0..<columnsCount{
+    public func cols()->[Vector]{
+        var columns:[Vector] = []
+        for j in 0..<columnsCount{
+            columns.append(Vector(rowsCount))
+            for i in 0..<rowsCount{
                 columns[j][i]=self[i,j]
             }
         }
         return columns
     }
     
-    public func getRows()->[Vector]{
-        let rows = Array(repeating: Vector(columnsCount), count: rowsCount)
+    public func rows()->[Vector]{
+        var rows:[Vector] = []
         for i in 0..<rowsCount{
+            rows.append(Vector(columnsCount))
             for j in 0..<columnsCount{
                 rows[i][j]=self[i,j]
             }
