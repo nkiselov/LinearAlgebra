@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		11B4DC0F240990BE0072F2A6 /* MatrixOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC0E240990BE0072F2A6 /* MatrixOperators.swift */; };
 		11B4DC112409913A0072F2A6 /* VectorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC102409913A0072F2A6 /* VectorOperators.swift */; };
+		11B4DC182409C85C0072F2A6 /* MatrixDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC172409C85C0072F2A6 /* MatrixDecomposition.swift */; };
+		11B4DC1A2409C9F20072F2A6 /* EigenDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC192409C9F20072F2A6 /* EigenDecomposition.swift */; };
+		11B4DC2D2409D5A00072F2A6 /* GeometricAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC2C2409D5A00072F2A6 /* GeometricAlgorithms.swift */; };
+		11B4DC2F2409EA810072F2A6 /* QRDecomposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC2E2409EA810072F2A6 /* QRDecomposition.swift */; };
+		11B4DC312409F8F80072F2A6 /* EigenAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC302409F8F80072F2A6 /* EigenAlgorithms.swift */; };
+		11B4DC33240A01DF0072F2A6 /* AlgebraicAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B4DC32240A01DF0072F2A6 /* AlgebraicAlgorithms.swift */; };
 		11DA70B923D7915000D60864 /* MESolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA70B823D7915000D60864 /* MESolver.swift */; };
 		11DA70BB23D791CB00D60864 /* MEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA70BA23D791CB00D60864 /* MEquation.swift */; };
 		11FF638423CF93DC00BC8F6A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FF638323CF93DC00BC8F6A /* main.swift */; };
@@ -31,6 +37,12 @@
 /* Begin PBXFileReference section */
 		11B4DC0E240990BE0072F2A6 /* MatrixOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOperators.swift; sourceTree = "<group>"; };
 		11B4DC102409913A0072F2A6 /* VectorOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorOperators.swift; sourceTree = "<group>"; };
+		11B4DC172409C85C0072F2A6 /* MatrixDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixDecomposition.swift; sourceTree = "<group>"; };
+		11B4DC192409C9F20072F2A6 /* EigenDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EigenDecomposition.swift; sourceTree = "<group>"; };
+		11B4DC2C2409D5A00072F2A6 /* GeometricAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometricAlgorithms.swift; sourceTree = "<group>"; };
+		11B4DC2E2409EA810072F2A6 /* QRDecomposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDecomposition.swift; sourceTree = "<group>"; };
+		11B4DC302409F8F80072F2A6 /* EigenAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EigenAlgorithms.swift; sourceTree = "<group>"; };
+		11B4DC32240A01DF0072F2A6 /* AlgebraicAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgebraicAlgorithms.swift; sourceTree = "<group>"; };
 		11DA70B823D7915000D60864 /* MESolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MESolver.swift; sourceTree = "<group>"; };
 		11DA70BA23D791CB00D60864 /* MEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEquation.swift; sourceTree = "<group>"; };
 		11FF638023CF93DC00BC8F6A /* LinearAlgebra */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinearAlgebra; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,14 +80,44 @@
 			path = MultivariableEquationSolver;
 			sourceTree = "<group>";
 		};
+		11B4DC132409926B0072F2A6 /* AlgebraicStructures */ = {
+			isa = PBXGroup;
+			children = (
+				11FF638C23CF93FC00BC8F6A /* Vector.swift */,
+				11FF638A23CF93F000BC8F6A /* Matrix.swift */,
+			);
+			path = AlgebraicStructures;
+			sourceTree = "<group>";
+		};
+		11B4DC1524099A440072F2A6 /* Agorithms */ = {
+			isa = PBXGroup;
+			children = (
+				11B4DC32240A01DF0072F2A6 /* AlgebraicAlgorithms.swift */,
+				11B4DC2C2409D5A00072F2A6 /* GeometricAlgorithms.swift */,
+				11B4DC302409F8F80072F2A6 /* EigenAlgorithms.swift */,
+				11B4DC162409C8450072F2A6 /* MatrixDecomposition */,
+			);
+			path = Agorithms;
+			sourceTree = "<group>";
+		};
+		11B4DC162409C8450072F2A6 /* MatrixDecomposition */ = {
+			isa = PBXGroup;
+			children = (
+				11B4DC172409C85C0072F2A6 /* MatrixDecomposition.swift */,
+				11B4DC192409C9F20072F2A6 /* EigenDecomposition.swift */,
+				11B4DC2E2409EA810072F2A6 /* QRDecomposition.swift */,
+			);
+			path = MatrixDecomposition;
+			sourceTree = "<group>";
+		};
 		11FF637723CF93DC00BC8F6A = {
 			isa = PBXGroup;
 			children = (
-				11B4DC12240991420072F2A6 /* MultivariableEquationSolver */,
-				11B4DC0D2409908C0072F2A6 /* Operators */,
-				11FF638C23CF93FC00BC8F6A /* Vector.swift */,
-				11FF638A23CF93F000BC8F6A /* Matrix.swift */,
 				11FF638323CF93DC00BC8F6A /* main.swift */,
+				11B4DC132409926B0072F2A6 /* AlgebraicStructures */,
+				11B4DC0D2409908C0072F2A6 /* Operators */,
+				11B4DC1524099A440072F2A6 /* Agorithms */,
+				11B4DC12240991420072F2A6 /* MultivariableEquationSolver */,
 				11FF638123CF93DC00BC8F6A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +156,7 @@
 		11FF637823CF93DC00BC8F6A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Nikita Kiselov";
 				TargetAttributes = {
@@ -149,10 +191,16 @@
 				11B4DC112409913A0072F2A6 /* VectorOperators.swift in Sources */,
 				11DA70BB23D791CB00D60864 /* MEquation.swift in Sources */,
 				11FF638B23CF93F000BC8F6A /* Matrix.swift in Sources */,
+				11B4DC182409C85C0072F2A6 /* MatrixDecomposition.swift in Sources */,
+				11B4DC1A2409C9F20072F2A6 /* EigenDecomposition.swift in Sources */,
 				11FF638D23CF93FC00BC8F6A /* Vector.swift in Sources */,
 				11DA70B923D7915000D60864 /* MESolver.swift in Sources */,
+				11B4DC2F2409EA810072F2A6 /* QRDecomposition.swift in Sources */,
+				11B4DC33240A01DF0072F2A6 /* AlgebraicAlgorithms.swift in Sources */,
 				11B4DC0F240990BE0072F2A6 /* MatrixOperators.swift in Sources */,
 				11FF638423CF93DC00BC8F6A /* main.swift in Sources */,
+				11B4DC312409F8F80072F2A6 /* EigenAlgorithms.swift in Sources */,
+				11B4DC2D2409D5A00072F2A6 /* GeometricAlgorithms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

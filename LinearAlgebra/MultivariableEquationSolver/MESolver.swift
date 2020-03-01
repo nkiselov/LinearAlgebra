@@ -18,7 +18,7 @@ class MESolver {
             var columns = Array(repeating: Vector(mEquation.outAmount),count: mEquation.inAmount)
             for i in 0..<mEquation.inAmount{
                 let step = Vector(mEquation.inAmount)
-                step.set(i,epsilon)
+                step[i] = epsilon
                 columns[i] = (mEquation.evaluate(pos+step)-value)/epsilon
             }
             let derivative = Matrix(columns: columns)
