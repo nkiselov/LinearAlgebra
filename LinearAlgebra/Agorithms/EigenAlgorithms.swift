@@ -49,14 +49,14 @@ func getEigen(_ a:Matrix)->([Double],[Vector]){
         fatalError("Can't compute eigenvalues of non square matrix")
     }
     let count = a.rowsCount
-    var iter = a
+    var iter = a.copy()
     var i=0
     while true{
-        let mu = wilkinsonShift(a:iter[count-2,count-2],b:iter[count-1,count-1],c:iter[count-2,count-1])
-        let shift = Matrix.identity(count)*mu
-        let qr = QRDecomposition(iter-shift)
+        //let mu = wilkinsonShift(a:iter[count-2,count-2],b:iter[count-1,count-1],c:iter[count-2,count-1])
+        //let shift = Matrix.identity(count)*mu
+        let qr = QRDecomposition(iter)
         i+=1
-        iter=qr.r*qr.q+shift
+        iter=qr.r*qr.q
         var sum:Double = 0
         for i in 0..<count{
             for j in 0..<i{
@@ -92,7 +92,6 @@ func getEigen(_ a:Matrix)->([Double],[Vector]){
         let m = a-Matrix.identity(a.rowsCount)*eigenvalueRepeats[i].0
         let q = QRDecomposition(m.transpose).q
         let cols = q.cols()
-        print(m*cols[cols.count-1])
         eigenvectors.append(contentsOf: cols[(cols.count-c)..<cols.count])
     }
     return (eigenvalues,eigenvectors)

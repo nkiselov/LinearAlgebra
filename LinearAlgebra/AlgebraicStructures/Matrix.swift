@@ -47,8 +47,6 @@ public class Matrix: CustomStringConvertible{
             columns.append(i)
         }
         var order = Array(repeating: 0, count: size)
-        print(reduced)
-        print(result)
         for i in 0..<size{
             var scale:Double = 0
             var c = 0
@@ -73,9 +71,6 @@ public class Matrix: CustomStringConvertible{
                     }
                 }
             }
-            print("-------------------------------------")
-            print(reduced)
-            print(result)
         }
         var flippedRows:[Vector] = []
         for i in 0..<size{
